@@ -5,4 +5,11 @@
 
     End Sub
 
+    Protected Sub ObjectDataSource1_Selecting(sender As Object, e As ObjectDataSourceSelectingEventArgs)
+
+    End Sub
+
+    Protected Sub ObjectDataSource3_Selecting(sender As Object, e As ObjectDataSourceSelectingEventArgs) Handles ObjectDataSource3.Selecting
+
+    End Sub
 End Class

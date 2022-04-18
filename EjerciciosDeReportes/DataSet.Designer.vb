@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class DataSet
     Inherits Global.System.Data.DataSet
     
-    Private _tableClientes_csv As _Clientes_csvDataTable
+    Private _tableProductos_csv As _Productos_csvDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class DataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("Clientes.csv")) Is Nothing) Then
-                MyBase.Tables.Add(New _Clientes_csvDataTable(ds.Tables("Clientes.csv")))
+            If (Not (ds.Tables("Productos.csv")) Is Nothing) Then
+                MyBase.Tables.Add(New _Productos_csvDataTable(ds.Tables("Productos.csv")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class DataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property _Clientes_csv() As _Clientes_csvDataTable
+    Public ReadOnly Property _Productos_csv() As _Productos_csvDataTable
         Get
-            Return Me._tableClientes_csv
+            Return Me._tableProductos_csv
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class DataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("Clientes.csv")) Is Nothing) Then
-                MyBase.Tables.Add(New _Clientes_csvDataTable(ds.Tables("Clientes.csv")))
+            If (Not (ds.Tables("Productos.csv")) Is Nothing) Then
+                MyBase.Tables.Add(New _Productos_csvDataTable(ds.Tables("Productos.csv")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class DataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me._tableClientes_csv = CType(MyBase.Tables("Clientes.csv"),_Clientes_csvDataTable)
+        Me._tableProductos_csv = CType(MyBase.Tables("Productos.csv"),_Productos_csvDataTable)
         If (initTable = true) Then
-            If (Not (Me._tableClientes_csv) Is Nothing) Then
-                Me._tableClientes_csv.InitVars
+            If (Not (Me._tableProductos_csv) Is Nothing) Then
+                Me._tableProductos_csv.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class DataSet
         Me.Namespace = "http://tempuri.org/DataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me._tableClientes_csv = New _Clientes_csvDataTable()
-        MyBase.Tables.Add(Me._tableClientes_csv)
+        Me._tableProductos_csv = New _Productos_csvDataTable()
+        MyBase.Tables.Add(Me._tableProductos_csv)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerialize_Clientes_csv() As Boolean
+    Private Function ShouldSerialize_Productos_csv() As Boolean
         Return false
     End Function
     
@@ -273,45 +273,39 @@ Partial Public Class DataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub _Clientes_csvRowChangeEventHandler(ByVal sender As Object, ByVal e As _Clientes_csvRowChangeEvent)
+    Public Delegate Sub _Productos_csvRowChangeEventHandler(ByVal sender As Object, ByVal e As _Productos_csvRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class _Clientes_csvDataTable
-        Inherits Global.System.Data.TypedTableBase(Of _Clientes_csvRow)
+    Partial Public Class _Productos_csvDataTable
+        Inherits Global.System.Data.TypedTableBase(Of _Productos_csvRow)
         
-        Private columnfirst_name As Global.System.Data.DataColumn
+        Private columnIdCodigoB As Global.System.Data.DataColumn
         
-        Private columnlast_name As Global.System.Data.DataColumn
+        Private columnIdProducto As Global.System.Data.DataColumn
         
-        Private columncompany_name As Global.System.Data.DataColumn
+        Private columnNombreProducto As Global.System.Data.DataColumn
         
-        Private columnaddress As Global.System.Data.DataColumn
+        Private columnProveedor As Global.System.Data.DataColumn
         
-        Private columncity As Global.System.Data.DataColumn
+        Private columnCategoría As Global.System.Data.DataColumn
         
-        Private columncounty As Global.System.Data.DataColumn
+        Private columnCantidadPorUnidad As Global.System.Data.DataColumn
         
-        Private columnstate As Global.System.Data.DataColumn
+        Private columnPrecioUnidad As Global.System.Data.DataColumn
         
-        Private columnzip As Global.System.Data.DataColumn
+        Private columnUnidadesEnExistencia As Global.System.Data.DataColumn
         
-        Private columnphone1 As Global.System.Data.DataColumn
-        
-        Private columnphone2 As Global.System.Data.DataColumn
-        
-        Private columnemail As Global.System.Data.DataColumn
-        
-        Private columnweb As Global.System.Data.DataColumn
+        Private columnSuspendido As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Clientes.csv"
+            Me.TableName = "Productos.csv"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -344,97 +338,73 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property first_nameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IdCodigoBColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnfirst_name
+                Return Me.columnIdCodigoB
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property last_nameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IdProductoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnlast_name
+                Return Me.columnIdProducto
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property company_nameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property NombreProductoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncompany_name
+                Return Me.columnNombreProducto
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property addressColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ProveedorColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnaddress
+                Return Me.columnProveedor
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property cityColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CategoríaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncity
+                Return Me.columnCategoría
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property countyColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CantidadPorUnidadColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncounty
+                Return Me.columnCantidadPorUnidad
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property stateColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PrecioUnidadColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnstate
+                Return Me.columnPrecioUnidad
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property zipColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property UnidadesEnExistenciaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnzip
+                Return Me.columnUnidadesEnExistencia
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property phone1Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property SuspendidoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnphone1
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property phone2Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnphone2
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property emailColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnemail
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property webColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnweb
+                Return Me.columnSuspendido
             End Get
         End Property
         
@@ -449,44 +419,44 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As _Clientes_csvRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As _Productos_csvRow
             Get
-                Return CType(Me.Rows(index),_Clientes_csvRow)
+                Return CType(Me.Rows(index),_Productos_csvRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event _Clientes_csvRowChanging As _Clientes_csvRowChangeEventHandler
+        Public Event _Productos_csvRowChanging As _Productos_csvRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event _Clientes_csvRowChanged As _Clientes_csvRowChangeEventHandler
+        Public Event _Productos_csvRowChanged As _Productos_csvRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event _Clientes_csvRowDeleting As _Clientes_csvRowChangeEventHandler
+        Public Event _Productos_csvRowDeleting As _Productos_csvRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event _Clientes_csvRowDeleted As _Clientes_csvRowChangeEventHandler
+        Public Event _Productos_csvRowDeleted As _Productos_csvRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub Add_Clientes_csvRow(ByVal row As _Clientes_csvRow)
+        Public Overloads Sub Add_Productos_csvRow(ByVal row As _Productos_csvRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function Add_Clientes_csvRow(ByVal first_name As String, ByVal last_name As String, ByVal company_name As String, ByVal address As String, ByVal city As String, ByVal county As String, ByVal state As String, ByVal zip As Integer, ByVal phone1 As String, ByVal phone2 As String, ByVal email As String, ByVal web As String) As _Clientes_csvRow
-            Dim row_Clientes_csvRow As _Clientes_csvRow = CType(Me.NewRow,_Clientes_csvRow)
-            Dim columnValuesArray() As Object = New Object() {first_name, last_name, company_name, address, city, county, state, zip, phone1, phone2, email, web}
-            row_Clientes_csvRow.ItemArray = columnValuesArray
-            Me.Rows.Add(row_Clientes_csvRow)
-            Return row_Clientes_csvRow
+        Public Overloads Function Add_Productos_csvRow(ByVal IdCodigoB As Integer, ByVal IdProducto As Integer, ByVal NombreProducto As String, ByVal Proveedor As String, ByVal Categoría As String, ByVal CantidadPorUnidad As String, ByVal PrecioUnidad As Double, ByVal UnidadesEnExistencia As Integer, ByVal Suspendido As String) As _Productos_csvRow
+            Dim row_Productos_csvRow As _Productos_csvRow = CType(Me.NewRow,_Productos_csvRow)
+            Dim columnValuesArray() As Object = New Object() {IdCodigoB, IdProducto, NombreProducto, Proveedor, Categoría, CantidadPorUnidad, PrecioUnidad, UnidadesEnExistencia, Suspendido}
+            row_Productos_csvRow.ItemArray = columnValuesArray
+            Me.Rows.Add(row_Productos_csvRow)
+            Return row_Productos_csvRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As _Clientes_csvDataTable = CType(MyBase.Clone,_Clientes_csvDataTable)
+            Dim cln As _Productos_csvDataTable = CType(MyBase.Clone,_Productos_csvDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -494,92 +464,77 @@ Partial Public Class DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New _Clientes_csvDataTable()
+            Return New _Productos_csvDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnfirst_name = MyBase.Columns("first_name")
-            Me.columnlast_name = MyBase.Columns("last_name")
-            Me.columncompany_name = MyBase.Columns("company_name")
-            Me.columnaddress = MyBase.Columns("address")
-            Me.columncity = MyBase.Columns("city")
-            Me.columncounty = MyBase.Columns("county")
-            Me.columnstate = MyBase.Columns("state")
-            Me.columnzip = MyBase.Columns("zip")
-            Me.columnphone1 = MyBase.Columns("phone1")
-            Me.columnphone2 = MyBase.Columns("phone2")
-            Me.columnemail = MyBase.Columns("email")
-            Me.columnweb = MyBase.Columns("web")
+            Me.columnIdCodigoB = MyBase.Columns("IdCodigoB")
+            Me.columnIdProducto = MyBase.Columns("IdProducto")
+            Me.columnNombreProducto = MyBase.Columns("NombreProducto")
+            Me.columnProveedor = MyBase.Columns("Proveedor")
+            Me.columnCategoría = MyBase.Columns("Categoría")
+            Me.columnCantidadPorUnidad = MyBase.Columns("CantidadPorUnidad")
+            Me.columnPrecioUnidad = MyBase.Columns("PrecioUnidad")
+            Me.columnUnidadesEnExistencia = MyBase.Columns("UnidadesEnExistencia")
+            Me.columnSuspendido = MyBase.Columns("Suspendido")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnfirst_name = New Global.System.Data.DataColumn("first_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfirst_name)
-            Me.columnlast_name = New Global.System.Data.DataColumn("last_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnlast_name)
-            Me.columncompany_name = New Global.System.Data.DataColumn("company_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncompany_name)
-            Me.columnaddress = New Global.System.Data.DataColumn("address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnaddress)
-            Me.columncity = New Global.System.Data.DataColumn("city", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncity)
-            Me.columncounty = New Global.System.Data.DataColumn("county", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncounty)
-            Me.columnstate = New Global.System.Data.DataColumn("state", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnstate)
-            Me.columnzip = New Global.System.Data.DataColumn("zip", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnzip)
-            Me.columnphone1 = New Global.System.Data.DataColumn("phone1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnphone1)
-            Me.columnphone2 = New Global.System.Data.DataColumn("phone2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnphone2)
-            Me.columnemail = New Global.System.Data.DataColumn("email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnemail)
-            Me.columnweb = New Global.System.Data.DataColumn("web", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnweb)
-            Me.columnfirst_name.MaxLength = 510
-            Me.columnlast_name.MaxLength = 510
-            Me.columncompany_name.MaxLength = 510
-            Me.columnaddress.MaxLength = 510
-            Me.columncity.MaxLength = 510
-            Me.columncounty.MaxLength = 510
-            Me.columnstate.MaxLength = 510
-            Me.columnphone1.MaxLength = 510
-            Me.columnphone2.MaxLength = 510
-            Me.columnemail.MaxLength = 510
-            Me.columnweb.MaxLength = 510
-            Me.ExtendedProperties.Add("Generator_TableVarName", "_tableClientes_csv")
-            Me.ExtendedProperties.Add("Generator_UserTableName", "Clientes.csv")
+            Me.columnIdCodigoB = New Global.System.Data.DataColumn("IdCodigoB", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdCodigoB)
+            Me.columnIdProducto = New Global.System.Data.DataColumn("IdProducto", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdProducto)
+            Me.columnNombreProducto = New Global.System.Data.DataColumn("NombreProducto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombreProducto)
+            Me.columnProveedor = New Global.System.Data.DataColumn("Proveedor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProveedor)
+            Me.columnCategoría = New Global.System.Data.DataColumn("Categoría", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCategoría)
+            Me.columnCantidadPorUnidad = New Global.System.Data.DataColumn("CantidadPorUnidad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCantidadPorUnidad)
+            Me.columnPrecioUnidad = New Global.System.Data.DataColumn("PrecioUnidad", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPrecioUnidad)
+            Me.columnUnidadesEnExistencia = New Global.System.Data.DataColumn("UnidadesEnExistencia", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnidadesEnExistencia)
+            Me.columnSuspendido = New Global.System.Data.DataColumn("Suspendido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSuspendido)
+            Me.columnNombreProducto.MaxLength = 510
+            Me.columnProveedor.MaxLength = 510
+            Me.columnCategoría.MaxLength = 510
+            Me.columnCantidadPorUnidad.MaxLength = 510
+            Me.columnSuspendido.MaxLength = 510
+            Me.ExtendedProperties.Add("Generator_TableVarName", "_tableProductos_csv")
+            Me.ExtendedProperties.Add("Generator_UserTableName", "Productos.csv")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function New_Clientes_csvRow() As _Clientes_csvRow
-            Return CType(Me.NewRow,_Clientes_csvRow)
+        Public Function New_Productos_csvRow() As _Productos_csvRow
+            Return CType(Me.NewRow,_Productos_csvRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New _Clientes_csvRow(builder)
+            Return New _Productos_csvRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(_Clientes_csvRow)
+            Return GetType(_Productos_csvRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me._Clientes_csvRowChangedEvent) Is Nothing) Then
-                RaiseEvent _Clientes_csvRowChanged(Me, New _Clientes_csvRowChangeEvent(CType(e.Row,_Clientes_csvRow), e.Action))
+            If (Not (Me._Productos_csvRowChangedEvent) Is Nothing) Then
+                RaiseEvent _Productos_csvRowChanged(Me, New _Productos_csvRowChangeEvent(CType(e.Row,_Productos_csvRow), e.Action))
             End If
         End Sub
         
@@ -587,8 +542,8 @@ Partial Public Class DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me._Clientes_csvRowChangingEvent) Is Nothing) Then
-                RaiseEvent _Clientes_csvRowChanging(Me, New _Clientes_csvRowChangeEvent(CType(e.Row,_Clientes_csvRow), e.Action))
+            If (Not (Me._Productos_csvRowChangingEvent) Is Nothing) Then
+                RaiseEvent _Productos_csvRowChanging(Me, New _Productos_csvRowChangeEvent(CType(e.Row,_Productos_csvRow), e.Action))
             End If
         End Sub
         
@@ -596,8 +551,8 @@ Partial Public Class DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me._Clientes_csvRowDeletedEvent) Is Nothing) Then
-                RaiseEvent _Clientes_csvRowDeleted(Me, New _Clientes_csvRowChangeEvent(CType(e.Row,_Clientes_csvRow), e.Action))
+            If (Not (Me._Productos_csvRowDeletedEvent) Is Nothing) Then
+                RaiseEvent _Productos_csvRowDeleted(Me, New _Productos_csvRowChangeEvent(CType(e.Row,_Productos_csvRow), e.Action))
             End If
         End Sub
         
@@ -605,14 +560,14 @@ Partial Public Class DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me._Clientes_csvRowDeletingEvent) Is Nothing) Then
-                RaiseEvent _Clientes_csvRowDeleting(Me, New _Clientes_csvRowChangeEvent(CType(e.Row,_Clientes_csvRow), e.Action))
+            If (Not (Me._Productos_csvRowDeletingEvent) Is Nothing) Then
+                RaiseEvent _Productos_csvRowDeleting(Me, New _Productos_csvRowChangeEvent(CType(e.Row,_Productos_csvRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Remove_Clientes_csvRow(ByVal row As _Clientes_csvRow)
+        Public Sub Remove_Productos_csvRow(ByVal row As _Productos_csvRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -639,7 +594,7 @@ Partial Public Class DataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "_Clientes_csvDataTable"
+            attribute2.FixedValue = "_Productos_csvDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -686,340 +641,261 @@ Partial Public Class DataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class _Clientes_csvRow
+    Partial Public Class _Productos_csvRow
         Inherits Global.System.Data.DataRow
         
-        Private _tableClientes_csv As _Clientes_csvDataTable
+        Private _tableProductos_csv As _Productos_csvDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me._tableClientes_csv = CType(Me.Table,_Clientes_csvDataTable)
+            Me._tableProductos_csv = CType(Me.Table,_Productos_csvDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property first_name() As String
+        Public Property IdCodigoB() As Integer
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.first_nameColumn),String)
+                    Return CType(Me(Me._tableProductos_csv.IdCodigoBColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'first_name' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdCodigoB' de la tabla 'Productos.csv' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.first_nameColumn) = value
+                Me(Me._tableProductos_csv.IdCodigoBColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property last_name() As String
+        Public Property IdProducto() As Integer
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.last_nameColumn),String)
+                    Return CType(Me(Me._tableProductos_csv.IdProductoColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'last_name' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdProducto' de la tabla 'Productos.csv' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.last_nameColumn) = value
+                Me(Me._tableProductos_csv.IdProductoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property company_name() As String
+        Public Property NombreProducto() As String
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.company_nameColumn),String)
+                    Return CType(Me(Me._tableProductos_csv.NombreProductoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'company_name' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NombreProducto' de la tabla 'Productos.csv' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.company_nameColumn) = value
+                Me(Me._tableProductos_csv.NombreProductoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property address() As String
+        Public Property Proveedor() As String
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.addressColumn),String)
+                    Return CType(Me(Me._tableProductos_csv.ProveedorColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'address' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Proveedor' de la tabla 'Productos.csv' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.addressColumn) = value
+                Me(Me._tableProductos_csv.ProveedorColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property city() As String
+        Public Property Categoría() As String
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.cityColumn),String)
+                    Return CType(Me(Me._tableProductos_csv.CategoríaColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'city' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Categoría' de la tabla 'Productos.csv' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.cityColumn) = value
+                Me(Me._tableProductos_csv.CategoríaColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property county() As String
+        Public Property CantidadPorUnidad() As String
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.countyColumn),String)
+                    Return CType(Me(Me._tableProductos_csv.CantidadPorUnidadColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'county' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CantidadPorUnidad' de la tabla 'Productos.csv' es DBNull."& _ 
+                            "", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.countyColumn) = value
+                Me(Me._tableProductos_csv.CantidadPorUnidadColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property state() As String
+        Public Property PrecioUnidad() As Double
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.stateColumn),String)
+                    Return CType(Me(Me._tableProductos_csv.PrecioUnidadColumn),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'state' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'PrecioUnidad' de la tabla 'Productos.csv' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.stateColumn) = value
+                Me(Me._tableProductos_csv.PrecioUnidadColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property zip() As Integer
+        Public Property UnidadesEnExistencia() As Integer
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.zipColumn),Integer)
+                    Return CType(Me(Me._tableProductos_csv.UnidadesEnExistenciaColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'zip' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'UnidadesEnExistencia' de la tabla 'Productos.csv' es DBNu"& _ 
+                            "ll.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.zipColumn) = value
+                Me(Me._tableProductos_csv.UnidadesEnExistenciaColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property phone1() As String
+        Public Property Suspendido() As String
             Get
                 Try 
-                    Return CType(Me(Me._tableClientes_csv.phone1Column),String)
+                    Return CType(Me(Me._tableProductos_csv.SuspendidoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'phone1' de la tabla 'Clientes.csv' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Suspendido' de la tabla 'Productos.csv' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me._tableClientes_csv.phone1Column) = value
+                Me(Me._tableProductos_csv.SuspendidoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property phone2() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableClientes_csv.phone2Column),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'phone2' de la tabla 'Clientes.csv' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableClientes_csv.phone2Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property email() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableClientes_csv.emailColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'email' de la tabla 'Clientes.csv' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableClientes_csv.emailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property web() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableClientes_csv.webColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'web' de la tabla 'Clientes.csv' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableClientes_csv.webColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isfirst_nameNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.first_nameColumn)
+        Public Function IsIdCodigoBNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.IdCodigoBColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setfirst_nameNull()
-            Me(Me._tableClientes_csv.first_nameColumn) = Global.System.Convert.DBNull
+        Public Sub SetIdCodigoBNull()
+            Me(Me._tableProductos_csv.IdCodigoBColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Islast_nameNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.last_nameColumn)
+        Public Function IsIdProductoNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.IdProductoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setlast_nameNull()
-            Me(Me._tableClientes_csv.last_nameColumn) = Global.System.Convert.DBNull
+        Public Sub SetIdProductoNull()
+            Me(Me._tableProductos_csv.IdProductoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Iscompany_nameNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.company_nameColumn)
+        Public Function IsNombreProductoNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.NombreProductoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setcompany_nameNull()
-            Me(Me._tableClientes_csv.company_nameColumn) = Global.System.Convert.DBNull
+        Public Sub SetNombreProductoNull()
+            Me(Me._tableProductos_csv.NombreProductoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsaddressNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.addressColumn)
+        Public Function IsProveedorNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.ProveedorColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetaddressNull()
-            Me(Me._tableClientes_csv.addressColumn) = Global.System.Convert.DBNull
+        Public Sub SetProveedorNull()
+            Me(Me._tableProductos_csv.ProveedorColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IscityNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.cityColumn)
+        Public Function IsCategoríaNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.CategoríaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetcityNull()
-            Me(Me._tableClientes_csv.cityColumn) = Global.System.Convert.DBNull
+        Public Sub SetCategoríaNull()
+            Me(Me._tableProductos_csv.CategoríaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IscountyNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.countyColumn)
+        Public Function IsCantidadPorUnidadNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.CantidadPorUnidadColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetcountyNull()
-            Me(Me._tableClientes_csv.countyColumn) = Global.System.Convert.DBNull
+        Public Sub SetCantidadPorUnidadNull()
+            Me(Me._tableProductos_csv.CantidadPorUnidadColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsstateNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.stateColumn)
+        Public Function IsPrecioUnidadNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.PrecioUnidadColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetstateNull()
-            Me(Me._tableClientes_csv.stateColumn) = Global.System.Convert.DBNull
+        Public Sub SetPrecioUnidadNull()
+            Me(Me._tableProductos_csv.PrecioUnidadColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IszipNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.zipColumn)
+        Public Function IsUnidadesEnExistenciaNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.UnidadesEnExistenciaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetzipNull()
-            Me(Me._tableClientes_csv.zipColumn) = Global.System.Convert.DBNull
+        Public Sub SetUnidadesEnExistenciaNull()
+            Me(Me._tableProductos_csv.UnidadesEnExistenciaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isphone1Null() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.phone1Column)
+        Public Function IsSuspendidoNull() As Boolean
+            Return Me.IsNull(Me._tableProductos_csv.SuspendidoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setphone1Null()
-            Me(Me._tableClientes_csv.phone1Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isphone2Null() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.phone2Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setphone2Null()
-            Me(Me._tableClientes_csv.phone2Column) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsemailNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.emailColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetemailNull()
-            Me(Me._tableClientes_csv.emailColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IswebNull() As Boolean
-            Return Me.IsNull(Me._tableClientes_csv.webColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetwebNull()
-            Me(Me._tableClientes_csv.webColumn) = Global.System.Convert.DBNull
+        Public Sub SetSuspendidoNull()
+            Me(Me._tableProductos_csv.SuspendidoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1027,16 +903,16 @@ Partial Public Class DataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class _Clientes_csvRowChangeEvent
+    Public Class _Productos_csvRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As _Clientes_csvRow
+        Private eventRow As _Productos_csvRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As _Clientes_csvRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As _Productos_csvRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1044,7 +920,7 @@ Partial Public Class DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As _Clientes_csvRow
+        Public ReadOnly Property Row() As _Productos_csvRow
             Get
                 Return Me.eventRow
             End Get
@@ -1071,7 +947,7 @@ Namespace DataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class Clientes_csvTableAdapter
+    Partial Public Class Productos_csvTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.Odbc.OdbcDataAdapter
@@ -1188,38 +1064,32 @@ Namespace DataSetTableAdapters
             Me._adapter = New Global.System.Data.Odbc.OdbcDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Clientes.csv"
-            tableMapping.ColumnMappings.Add("first_name", "first_name")
-            tableMapping.ColumnMappings.Add("last_name", "last_name")
-            tableMapping.ColumnMappings.Add("company_name", "company_name")
-            tableMapping.ColumnMappings.Add("address", "address")
-            tableMapping.ColumnMappings.Add("city", "city")
-            tableMapping.ColumnMappings.Add("county", "county")
-            tableMapping.ColumnMappings.Add("state", "state")
-            tableMapping.ColumnMappings.Add("zip", "zip")
-            tableMapping.ColumnMappings.Add("phone1", "phone1")
-            tableMapping.ColumnMappings.Add("phone2", "phone2")
-            tableMapping.ColumnMappings.Add("email", "email")
-            tableMapping.ColumnMappings.Add("web", "web")
+            tableMapping.DataSetTable = "Productos.csv"
+            tableMapping.ColumnMappings.Add("IdCodigoB", "IdCodigoB")
+            tableMapping.ColumnMappings.Add("IdProducto", "IdProducto")
+            tableMapping.ColumnMappings.Add("NombreProducto", "NombreProducto")
+            tableMapping.ColumnMappings.Add("Proveedor", "Proveedor")
+            tableMapping.ColumnMappings.Add("Categoría", "Categoría")
+            tableMapping.ColumnMappings.Add("CantidadPorUnidad", "CantidadPorUnidad")
+            tableMapping.ColumnMappings.Add("PrecioUnidad", "PrecioUnidad")
+            tableMapping.ColumnMappings.Add("UnidadesEnExistencia", "UnidadesEnExistencia")
+            tableMapping.ColumnMappings.Add("Suspendido", "Suspendido")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.InsertCommand = New Global.System.Data.Odbc.OdbcCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Clientes#csv` (`first_name`, `last_name`, `company_name`, `address`,"& _ 
-                " `city`, `county`, `state`, `zip`, `phone1`, `phone2`, `email`, `web`) VALUES (?"& _ 
-                ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Productos#csv` (`IdCodigoB`, `IdProducto`, `NombreProducto`, `Provee"& _ 
+                "dor`, `Categoría`, `CantidadPorUnidad`, `PrecioUnidad`, `UnidadesEnExistencia`, "& _ 
+                "`Suspendido`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("first_name", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "first_name", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("last_name", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "last_name", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("company_name", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "company_name", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("address", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "address", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("city", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "city", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("county", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "county", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("state", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "state", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("zip", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "zip", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("phone1", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "phone1", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("phone2", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "phone2", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("email", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "email", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("web", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "web", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IdCodigoB", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IdCodigoB", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("IdProducto", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IdProducto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("NombreProducto", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NombreProducto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Proveedor", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Proveedor", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Categoría", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Categoría", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("CantidadPorUnidad", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CantidadPorUnidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("PrecioUnidad", Global.System.Data.Odbc.OdbcType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PrecioUnidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("UnidadesEnExistencia", Global.System.Data.Odbc.OdbcType.Int, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "UnidadesEnExistencia", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.Odbc.OdbcParameter("Suspendido", Global.System.Data.Odbc.OdbcType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Suspendido", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1235,8 +1105,9 @@ Namespace DataSetTableAdapters
             Me._commandCollection = New Global.System.Data.Odbc.OdbcCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.Odbc.OdbcCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT `first_name`, `last_name`, `company_name`, `address`, `city`, `county`, `s"& _ 
-                "tate`, `zip`, `phone1`, `phone2`, `email`, `web` FROM `Clientes.csv`"
+            Me._commandCollection(0).CommandText = "SELECT `IdCodigoB`, `IdProducto`, `NombreProducto`, `Proveedor`, `Categoría`, `Ca"& _ 
+                "ntidadPorUnidad`, `PrecioUnidad`, `UnidadesEnExistencia`, `Suspendido` FROM `Pro"& _ 
+                "ductos.csv`"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1244,7 +1115,7 @@ Namespace DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet._Clientes_csvDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet._Productos_csvDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1257,9 +1128,9 @@ Namespace DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet._Clientes_csvDataTable
+        Public Overloads Overridable Function GetData() As DataSet._Productos_csvDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet._Clientes_csvDataTable = New DataSet._Clientes_csvDataTable()
+            Dim dataTable As DataSet._Productos_csvDataTable = New DataSet._Productos_csvDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -1267,7 +1138,7 @@ Namespace DataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DataSet._Clientes_csvDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DataSet._Productos_csvDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -1275,7 +1146,7 @@ Namespace DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As DataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Clientes.csv")
+            Return Me.Adapter.Update(dataSet, "Productos.csv")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1296,62 +1167,35 @@ Namespace DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal first_name As String, ByVal last_name As String, ByVal company_name As String, ByVal address As String, ByVal city As String, ByVal county As String, ByVal state As String, ByVal zip As Integer, ByVal phone1 As String, ByVal phone2 As String, ByVal email As String, ByVal web As String) As Integer
-            If (first_name Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("first_name")
+        Public Overloads Overridable Function Insert(ByVal IdCodigoB As Integer, ByVal IdProducto As Integer, ByVal NombreProducto As String, ByVal Proveedor As String, ByVal Categoría As String, ByVal CantidadPorUnidad As String, ByVal PrecioUnidad As Double, ByVal UnidadesEnExistencia As Integer, ByVal Suspendido As String) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(IdCodigoB,Integer)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(IdProducto,Integer)
+            If (NombreProducto Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NombreProducto")
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(first_name,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(NombreProducto,String)
             End If
-            If (last_name Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("last_name")
+            If (Proveedor Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Proveedor")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(last_name,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Proveedor,String)
             End If
-            If (company_name Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("company_name")
+            If (Categoría Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Categoría")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(company_name,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Categoría,String)
             End If
-            If (address Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("address")
+            If (CantidadPorUnidad Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("CantidadPorUnidad")
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(address,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(CantidadPorUnidad,String)
             End If
-            If (city Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("city")
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(PrecioUnidad,Double)
+            Me.Adapter.InsertCommand.Parameters(7).Value = CType(UnidadesEnExistencia,Integer)
+            If (Suspendido Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Suspendido")
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(city,String)
-            End If
-            If (county Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("county")
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(county,String)
-            End If
-            If (state Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("state")
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(state,String)
-            End If
-            Me.Adapter.InsertCommand.Parameters(7).Value = CType(zip,Integer)
-            If (phone1 Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("phone1")
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(phone1,String)
-            End If
-            If (phone2 Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("phone2")
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(phone2,String)
-            End If
-            If (email Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("email")
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(email,String)
-            End If
-            If (web Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("web")
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(web,String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Suspendido,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1382,7 +1226,7 @@ Namespace DataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _clientes_csvTableAdapter As Clientes_csvTableAdapter
+        Private _productos_csvTableAdapter As Productos_csvTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -1404,12 +1248,12 @@ Namespace DataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property Clientes_csvTableAdapter() As Clientes_csvTableAdapter
+        Public Property Productos_csvTableAdapter() As Productos_csvTableAdapter
             Get
-                Return Me._clientes_csvTableAdapter
+                Return Me._productos_csvTableAdapter
             End Get
             Set
-                Me._clientes_csvTableAdapter = value
+                Me._productos_csvTableAdapter = value
             End Set
         End Property
         
@@ -1432,9 +1276,9 @@ Namespace DataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._clientes_csvTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._clientes_csvTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._clientes_csvTableAdapter.Connection
+                If ((Not (Me._productos_csvTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._productos_csvTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._productos_csvTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -1449,7 +1293,7 @@ Namespace DataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._clientes_csvTableAdapter) Is Nothing) Then
+                If (Not (Me._productos_csvTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -1463,12 +1307,12 @@ Namespace DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._clientes_csvTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet._Clientes_csv.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._productos_csvTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet._Productos_csv.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._clientes_csvTableAdapter.Update(updatedRows))
+                    result = (result + Me._productos_csvTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -1482,11 +1326,11 @@ Namespace DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As DataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._clientes_csvTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet._Clientes_csv.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._productos_csvTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet._Productos_csv.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._clientes_csvTableAdapter.Update(addedRows))
+                    result = (result + Me._productos_csvTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -1500,11 +1344,11 @@ Namespace DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._clientes_csvTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet._Clientes_csv.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._productos_csvTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet._Productos_csv.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._clientes_csvTableAdapter.Update(deletedRows))
+                    result = (result + Me._productos_csvTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -1549,8 +1393,8 @@ Namespace DataSetTableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._clientes_csvTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._clientes_csvTableAdapter.Connection) = false)) Then
+            If ((Not (Me._productos_csvTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._productos_csvTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
@@ -1586,13 +1430,13 @@ Namespace DataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._clientes_csvTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._clientes_csvTableAdapter, Me._clientes_csvTableAdapter.Connection)
-                    Me._clientes_csvTableAdapter.Connection = CType(workConnection,Global.System.Data.Odbc.OdbcConnection)
-                    Me._clientes_csvTableAdapter.Transaction = CType(workTransaction,Global.System.Data.Odbc.OdbcTransaction)
-                    If Me._clientes_csvTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._clientes_csvTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._clientes_csvTableAdapter.Adapter)
+                If (Not (Me._productos_csvTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._productos_csvTableAdapter, Me._productos_csvTableAdapter.Connection)
+                    Me._productos_csvTableAdapter.Connection = CType(workConnection,Global.System.Data.Odbc.OdbcConnection)
+                    Me._productos_csvTableAdapter.Transaction = CType(workTransaction,Global.System.Data.Odbc.OdbcTransaction)
+                    If Me._productos_csvTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._productos_csvTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._productos_csvTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -1655,9 +1499,9 @@ Namespace DataSetTableAdapters
                 If workConnOpened Then
                     workConnection.Close
                 End If
-                If (Not (Me._clientes_csvTableAdapter) Is Nothing) Then
-                    Me._clientes_csvTableAdapter.Connection = CType(revertConnections(Me._clientes_csvTableAdapter),Global.System.Data.Odbc.OdbcConnection)
-                    Me._clientes_csvTableAdapter.Transaction = Nothing
+                If (Not (Me._productos_csvTableAdapter) Is Nothing) Then
+                    Me._productos_csvTableAdapter.Connection = CType(revertConnections(Me._productos_csvTableAdapter),Global.System.Data.Odbc.OdbcConnection)
+                    Me._productos_csvTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

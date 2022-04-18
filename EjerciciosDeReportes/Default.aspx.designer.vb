@@ -41,6 +41,15 @@ Partial Public Class _Default
     Protected WithEvents ReportViewer1 As Global.Microsoft.Reporting.WebForms.ReportViewer
 
     '''<summary>
+    '''Control ObjectDataSource3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ObjectDataSource3 As Global.System.Web.UI.WebControls.ObjectDataSource
+
+    '''<summary>
     '''Control ObjectDataSource2.
     '''</summary>
     '''<remarks>
